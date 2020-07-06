@@ -1,0 +1,73 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+   <head>
+      <meta charset="UTF-8">
+      <title>Sign Up</title>
+      <style>
+         .error-message {
+         font-size:90%;
+         font-style:italic;
+         color:red;
+         }
+      </style>
+   </head>
+   <body>
+      <!-- Include _menu.html -->
+      <th:block th:include="/_menu"></th:block>
+      <h1>Register</h1>
+      <h2 style="color:blue;"
+         th:if="${myForm.signInProvider != null}">Signup with <span th:utex="${myForm.signInProvider}"></span></h2>
+      <form th:object="${myForm}" method="POST">
+         <input type="hidden" th:field="*{userId}"  />
+         <input type="hidden" th:field="*{signInProvider}" />  
+         <table border="0">
+            <tr>
+               <td>User Name</td>
+               <td><input  th:field="*{userName}" /></td>
+               <td>
+                  <span class="error-message"
+                     th:if="${#fields.hasErrors('userName')}" th:errors="*{userName}">..</span>
+               </td>
+            </tr>
+            <tr>
+               <td>Email</td>
+               <td><input th:field="*{email}" /></td>
+               <td>
+                  <span class="error-message"
+                     th:if="${#fields.hasErrors('email')}" th:errors="*{email}">..</span>
+               </td>
+            </tr>
+            <tr>
+               <td>First Name</td>
+               <td><input th:field="*{firstName}" /></td>
+               <td>
+                  <span class="error-message"
+                     th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}">..</span>
+               </td>
+            </tr>
+            <tr>
+               <td>Last Name</td>
+               <td><input th:field="*{lastName}" /></td>
+               <td>
+                  <span class="error-message"
+                     th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}">..</span>
+               </td>
+            </tr>
+            <tr>
+               <td>Password</td>
+               <td><input th:field="*{password}" /></td>
+               <td>
+                  <span class="error-message"
+                     th:if="${#fields.hasErrors('password')}" th:errors="*{password}">..</span>
+               </td>
+            </tr>
+            <tr>
+               <td></td>
+               <td><input type="submit" value="Submit" /></td>
+               <td></td>
+            </tr>
+         </table>
+      </form>
+      <div class="error-message" th:utext="${errorMessage}"></div>
+   </body>
+</html>
