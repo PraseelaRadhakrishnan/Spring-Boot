@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Implementation-Title: spring-security-jwt
 Implementation-Version: 1.0-SNAPSHOT
 Built-By: p.radhakrishnan
-Implementation-Vendor-Id: com.devglan
+Implementation-Vendor-Id: com.demo
 Build-Jdk: 1.8.0_211
 Implementation-URL: https://projects.spring.io/spring-boot/#/spring-bo
  ot-starter-parent/spring-security-jwt
