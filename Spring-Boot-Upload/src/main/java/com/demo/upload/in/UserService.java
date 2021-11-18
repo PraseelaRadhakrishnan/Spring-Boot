@@ -20,6 +20,7 @@ public class UserService {
 			userJson = objectMapper.readValue(user, User.class);
 		} catch (IOException err) {
 			System.out.printf("Error", err.toString());
+			userJson.setFirstName("Dummy");
 		}
 		
 		int fileCount = file.size();

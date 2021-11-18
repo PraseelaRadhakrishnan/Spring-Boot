@@ -18,9 +18,7 @@ public class UserController {
 	@Autowired
 	UserService userService;
 
-	@PostMapping(value = "/upload", consumes = { MediaType.APPLICATION_JSON_VALUE,
-			MediaType.MULTIPART_FORM_DATA_VALUE,MediaType.MULTIPART_MIXED_VALUE })
-
+	@PostMapping(value = "/upload")
 	public User upload(@RequestParam("user") String user, @RequestPart("filename") List<MultipartFile> file) {
 
 		System.out.println("UserController.upload()" + user);
@@ -28,7 +26,7 @@ public class UserController {
 		userJson.setFirstName("Dummy");
 
 		if (user != null && (user.trim().length() != 0)) {
-			userService.getJson(user, file);
+			userJson = userService.getJson(user, file);
 		}
 
 		if ((file != null) && (!file.isEmpty())) {
